@@ -4,7 +4,7 @@
 //
 //  Created by Sara Topic on 13/03/2018.
 //
-
+#include <iostream>
 #include "bloomFilter.hpp"
 
 
