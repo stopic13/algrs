@@ -29,7 +29,8 @@ void LinkedList::printList(){
   Node *curr_node = head;
   while (curr_node != nullptr)
   {
-    cout << curr_node-> data << endl;
+    cout << curr_node-> data;
+    cout << "-------->";
     curr_node = curr_node->next;
   }
 }
