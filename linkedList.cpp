@@ -8,36 +8,59 @@ struct Node{
 
 
 class LinkedList{
-  Node *head;
+  //Node *head;
 
   public:
+  Node *head;
 
-  LinkedList() { };
+  LinkedList() {
+  head = nullptr;
+   };
 
 
   void addFirst(Node *node);
+
+
   void printList();
 };
 
 void LinkedList::printList(){
   cout << "called the print method" << endl;
+  Node *curr_node = head;
+  while (curr_node != nullptr)
+  {
+    cout << curr_node-> data << endl;
+    curr_node = curr_node->next;
+  }
 }
 
 void LinkedList::addFirst(Node *node){
   cout << "called the add First method" << endl;
+
+  if (head != nullptr){
+    node->next = head;
+    head = node;
+  }
+  else{
+    head = node;
+    head->next = nullptr;
+  }
+//  node.next = nullptr;
 }
 
 int main(int argc, char** argv)
 {
     Node firstNode = Node();
     Node secondNode = Node();;
+    Node thirdNode = Node();;
 
     firstNode.data = 1;
     secondNode.data = 2;
-
+    thirdNode.data = 3;
 
     firstNode.next = &secondNode;
-    secondNode.next = nullptr;
+    secondNode.next = &thirdNode;
+    thirdNode.next = nullptr;
 
 
 
@@ -51,6 +74,16 @@ int main(int argc, char** argv)
 
     LinkedList myLinkedList = LinkedList();
     myLinkedList.addFirst(&firstNode);
+    myLinkedList.printList();
+
+    myLinkedList.addFirst(&secondNode);
+    myLinkedList.printList();
+
+    myLinkedList.addFirst(&thirdNode);
+
+    myLinkedList.printList();
+
+
     // std::cout << myNode.next;
     return 0;
 }
