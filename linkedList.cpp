@@ -7,14 +7,50 @@ struct Node{
 };
 
 
+class LinkedList{
+  Node *head;
+
+  public:
+
+  LinkedList() { };
+
+
+  void addFirst(Node *node);
+  void printList();
+};
+
+void LinkedList::printList(){
+  cout << "called the print method" << endl;
+}
+
+void LinkedList::addFirst(Node *node){
+  cout << "called the add First method" << endl;
+}
 
 int main(int argc, char** argv)
 {
-    Node myNode;
-    myNode.data = 13;
-    myNode.next = nullptr;
-    std::cout<<"here";
-    std::cout << myNode.data;
-    std::cout << myNode.next;
+    Node firstNode = Node();
+    Node secondNode = Node();;
+
+    firstNode.data = 1;
+    secondNode.data = 2;
+
+
+    firstNode.next = &secondNode;
+    secondNode.next = nullptr;
+
+
+
+    // std::cout<<"here";
+    std::cout << firstNode.data <<endl;
+    std::cout << firstNode.next <<endl;
+
+
+    std::cout << secondNode.data <<endl;
+    std::cout << secondNode.next <<endl;
+
+    LinkedList myLinkedList = LinkedList();
+    myLinkedList.addFirst(&firstNode);
+    // std::cout << myNode.next;
     return 0;
 }
